@@ -1,0 +1,13 @@
+body{
+  background-color: rgb(33, 33, 33);
+  color: white;
+}
+
+div.row{
+  background-color: rgb(58, 58, 58);
+  margin-top: 2vh;
+}
+
+div.profile_content{
+  padding-top: 15px;
+}

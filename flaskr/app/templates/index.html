@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>1nfluencers Marketing Test</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  
+  <!-- Main Stylesheet File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+  
+  <div class="container">
+    <h1>Search for potential influencers on Twitter</h1>
+
+    <form action="/search" method="post" role="form" class="contactForm">
+      <div class="row">
+        <div class="col-md-12 mb-3">
+          <div class="form-group">
+            Brand Name
+            <input type="text" name="brand_name" class="form-control" id="brand_name" placeholder="Brand name" data-msg="Please your brand's name" required/>
+          </div>
+        </div>
+        <div class="col-md-12 mb-3">
+          <div class="form-group">
+            Keywords
+            <input type="text" class="form-control" name="keywords" id="keywords" placeholder="Ninch keywords (separated by comma)" data-msg="Please enter your brand's ninch keyword (separated by comma)" required/>
+          </div>
+        </div>
+        <div class="col-md-12 mb-3">
+          <div class="form-group">
+            Minimum Number of Followers
+            <input type="text" class="form-control" name="min_followers" id="min_followers" placeholder="Minimum number of followers" value="0" data-msg="The minimum number of followers the influencer have to have" required/>
+          </div>
+        </div>
+        <div class="col-md-12 mb-3">
+            <div class="form-group">
+              Minimum number of favorites
+              <input type="number" class="form-control" name="min_faves" id="min_faves" min="0" value="500" placeholder="Minimum number of favorites" data-msg="The minimum number of favorites the search engine is going to use to filter results" required/>
+            </div>
+        </div>
+        <div class="col-md-12 mb-3">
+          <div class="form-group">
+            Minimum number of retweets
+            <input type="number" class="form-control" name="min_retweets" id="min_retweets" min="0" value="100" placeholder="Minimum number of retweets" data-msg="The minimum number of retweets the search engine is going to use to filter results" required/>
+          </div>
+        </div>
+        <div class="col-md-12 mb-3">
+          <div class="form-group">
+            Posts language
+            <input type="text" class="form-control" name="language" id="language" placeholder="The influencer language, .e.g en" value="en" data-msg="The language the search engine will use to filter results" required/>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <button type="submit" class="button button-a button-big button-rouded">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  
+  <!-- JavaScript Libraries -->
+  <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

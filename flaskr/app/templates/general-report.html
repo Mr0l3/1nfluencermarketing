@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Profiles Report</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  
+  <!-- Main Stylesheet File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container"> 
+        <h1>Profiles Found</h1>
+    </div>
+
+    <div class="container">
+        {% for i in range(len) %}
+            <div class="row profile_content">
+                <div class="container">
+                    <h3>{{ profiles[i]['displayed_name'] }}</h3>
+                </div>
+                
+                <div class="col-md-12 mb-3">
+                    <p><a href="https://twitter.com/{{ profiles[i]['username'] }}" target="_blank"> @{{ profiles[i]['username'] }}</a></p>
+                    <p>{{ profiles[i]['description'] }}</p>
+                    <h5>Profile Statistics</h5>
+                    <p>
+                        <div class="d-inline p-4">Followers: {{ profiles[i]['followers'] }}</div>
+                        <div class="d-inline p-4">Following: {{ profiles[i]['following'] }}</div>
+                        <div class="d-inline p-4">Number os posts: {{ profiles[i]['posts_count'] }}</div>
+                        <div class="d-inline p-4">In Twitter since: {{ profiles[i]['joined_twitter'] }}</div>
+                        <div class="d-inline p-4">Website: <a href="{{ profiles[i]['website'] }}" target="_blank">{{ profiles[i]['website'] }}</a></div>
+                    </p>
+                    <a href="/report/{{ profiles[i]['username'] }}" target="_blank">
+                        <button type="button" class="btn btn-primary">Detailed info</button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>

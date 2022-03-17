@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Detailed Report</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Bootstrap CSS File -->
+  <link href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  
+  <!-- Main Stylesheet File -->
+  <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="container profile_content">
+                <h3>{{ profile['displayed_name'] }}</h3>
+                <div class="col-lg-12 mb-3">
+                    <p><a href="https://twitter.com/{{ profile['username'] }}" target="_blank"> @{{ profile['username'] }}</a></p>
+                    <p>{{ profile['description'] }}</p>
+                    <h5>Profile Statistics</h5>
+                    <p>
+                        <div class="d-inline p-4">Followers: {{ profile['followers'] }}</div>
+                        <div class="d-inline p-4">Following: {{ profile['following'] }}</div>
+                        <div class="d-inline p-4">Number of posts: {{ profile['posts_count'] }}</div>
+                        <div class="d-inline p-4">In Twitter since: {{ profile['joined_twitter'] }}</div>
+                        <div class="d-inline p-4">Website: <a href="{{ profile['website'] }}" target="_blank">{{ profile['website'] }}</a></div>
+                    </p>
+                    <h5>Datailed information</h5>
+                    <p>
+                        <div class="d-inline p-4">Mean of tweets per day: {{ stats['day']['mean'] }}</div>
+                        <div class="d-inline p-4">Median of tweets per day: {{ stats['day']['median'] }}</div>
+                    </p>
+                    <p>
+                        <div class="d-inline p-4">Mean of tweets per week: {{ stats['week']['mean'] }}</div>
+                        <div class="d-inline p-4">Median of tweets per week: {{ stats['week']['median'] }}</div>
+                    </p>
+                    <p>
+                        <div class="d-inline p-4">Mean of tweets per month: {{ stats['month']['mean'] }}</div>
+                        <div class="d-inline p-4">Median of tweets per month: {{ stats['month']['median'] }}</div>
+                    </p>
+                </div>
+              
+                <div class="col-lg-12 mb-3">
+                    <div class="row">
+                        <img src="data:image/png;base64,{{ plot_data['days_plot'] }}" class="mx-auto d-block"/>
+                    </div>
+                    <div class="row">
+                        <img src="data:image/png;base64,{{ plot_data['weeks_plot'] }}" class="mx-auto d-block"/>
+                    </div>
+                    <div class="row">
+                        <img src="data:image/png;base64,{{ plot_data['months_plot'] }}" class="mx-auto d-block"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.min.js') }}"></script>
+
+</body>
+</html>
