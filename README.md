@@ -43,11 +43,19 @@ Is a method used to reduce dimensionality. The idea is to reduce the variables a
 - Plots: they are the main information source, mainly in more recent dates. With plots we can detect the profile's activity in the last days, weeks or months.
 
 ## Installation and usage
-### In Linux terminal:
+*Disclaimer: the pages may take a while to load since the application doesn't use concurrency and pararelism*
+### venv setup
+```python -m venv env```
+
+### venv activation
+```source env/bin/activate```
+
+### Install dependencies:
 
 ```pip3 install -r requirements.txt```
 
-### To run:
+
+### To run (with venv activated):
 Change to flask directory
 
 ```cd flaskr```
